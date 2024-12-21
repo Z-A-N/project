@@ -8,7 +8,18 @@ include '../config.php';
 
 
 $query = "SELECT * FROM properties";
+$query_count = "SELECT COUNT(*) AS total_properties, SUM(price) AS total_price FROM properties";
+$query_count_customers = "SELECT COUNT(*) AS total_customers FROM customers";
+
 $result = mysqli_query($conn, $query);
+$result_count = mysqli_query($conn, $query_count);
+$result_customers = mysqli_query($conn, $query_count_customers);
+
+$row = mysqli_fetch_assoc($result_count);
+$row_customers = mysqli_fetch_assoc($result_customers);
+
+
+
 
 // Periksa apakah ada data yang ditemukan
 if (!$result) {
@@ -27,15 +38,8 @@ if (!$result) {
 	<!-- Shortcut Icon -->
 	<link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
 	<!-- My CSS -->
-	<link rel="stylesheet" href="style2.css">
-	<style>
-		#sidebar .brand .side-logo {
-			width: 45px;
-			margin-right: 15px;
-			display: flex;
-			justify-content: center;
-		}
-	</style>
+	<link rel="stylesheet" href="style2.css"> 
+	<!-- style2.css?v=1.0 apabila style tidak berubah pembersihan cache -->
 
 	<title>Admin - PropertyHub</title>
 </head>
@@ -61,7 +65,7 @@ if (!$result) {
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a href="costumer.php">
 					<i class='bx bxs-user'></i>
 					<span class="text">Costumer</span>
 				</a>
@@ -94,7 +98,7 @@ if (!$result) {
 			<a href="#" class="nav-link">Categories</a>
 			<form action="#">
 				<div class="form-input">
-					<input type="search" placeholder="Search properties...">
+					<input type="search" placeholder="Search...">
 					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
 				</div>
 			</form>
@@ -116,49 +120,35 @@ if (!$result) {
         <div class="left">
             <h1>Dashboard</h1>
             <ul class="breadcrumb">
-                <li><a href="#">Dashboard</a></li>
-                <li><i class='bx bx-chevron-right'></i></li>
-                <li><a class="active" href="#">Home</a></li>
+                <li><a class="active" href="#">Dashboard</a></li>
             </ul>
         </div>
     </div>
 
     <!-- Box Info Section -->
-    <ul class="box-info">
+    <ul class="box-info mb-10">
         <li>
             <i class='bx bxs-calendar-check'></i>
             <span class="text">
-                <h3>120</h3>
+                <h3><?php echo $row['total_properties']; ?></h3>
                 <p>New Listings</p>
             </span>
         </li>
         <li>
             <i class='bx bxs-group'></i>
             <span class="text">
-                <h3>834</h3>
+                <h3><?php echo $row_customers['total_customers']; ?></h3>
                 <p>Clients</p>
             </span>
         </li>
         <li>
             <i class='bx bxs-dollar-circle'></i>
             <span class="text">
-                <h3>$1.2M</h3>
+                <h3><?php echo "Rp " . number_format($row['total_price'], 0, ',', '.'); ?></h3>
                 <p>Total Sales</p>
             </span>
         </li>
     </ul>
-
-    <!-- Properties Heading -->
-    <div class="head-title">
-        <div class="left">
-            <h1>Properties</h1>
-            <ul class="breadcrumb">
-                <li><a href="#">Dashboard</a></li>
-                <li><i class='bx bx-chevron-right'></i></li>
-                <li><a class="active" href="#">Properties</a></li>
-            </ul>
-        </div>
-    </div>
 
     <div class="container">
     <div class="row">
@@ -167,7 +157,7 @@ if (!$result) {
                 <div class="card shadow-sm">
                     <!-- Property Image -->
                     <img src="uploads/<?php echo $row['image']; ?>" alt="<?php echo $row['name']; ?>"
-                        class="card-img-top" style="height: 200px; object-fit: cover;">
+                        class="card-img-top" style="width: 200px; height: 200px; object-fit: cover;">
                     <div class="card-body text-center">
                         <h5 class="card-title"><?php echo $row['name']; ?></h5>
                         <p class="card-text"><?php echo $row['location']; ?></p>
@@ -193,9 +183,6 @@ if (!$result) {
     </div>
 </div>
 </main>
-
-
-
 		<!-- MAIN -->
 	</section>
 	<!-- CONTENT -->

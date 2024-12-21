@@ -316,13 +316,13 @@ if (isset($_GET['id'])) {
             <span class="text">PropertyHub</span>
         </a>
         <ul class="side-menu top">
-            <li class="active">
+            <li>
                 <a href="index.php">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="#">
                     <i class='bx bxs-home'></i>
                     <span class="text">Properti</span>
@@ -379,9 +379,16 @@ if (isset($_GET['id'])) {
 
         <!-- MAIN -->
         <main class="main-content">
-            <header class="header">
-                <h1>Create Properti</h1>
-            </header>
+        <div class="head-title">
+        <div class="left">
+            <h1>Dashboard</h1>
+            <ul class="breadcrumb">
+                <li><a href="#">Dashboard</a></li>
+                <li><i class='bx bx-chevron-right'></i></li>
+                <li><a class="active" href="#">Update Property</a></li>
+            </ul>
+        </div>
+    </div>
             <section class="form-section">
             <form action="" method="POST" enctype="multipart/form-data">
                     <div class="form-group">

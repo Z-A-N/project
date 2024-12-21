@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!--Icon-->
+    <link
+      rel="shortcut icon"
+      href="./assets/img/logo.ico"
+      type="image/x-icon"
+    />
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- Font Awesome 6.3.0 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <style>
+      
+.navbar {
+    transition: background-color 0.4s ease;
+    padding: 0.7rem 1rem !important;
+}
+
+.navbar a {
+    font-weight: 500;
+}
+
+.navbar-shadow {
+    transition: box-shadow 0.s ease;
+    -webkit-transition: box-shadow 0.s ease;
+    -moz-transition: box-shadow 0.s ease;
+    -ms-transition: box-shadow 0.s ease;
+    -o-transition: box-shadow 0.s ease;
+}
+
+.navbar-shadow.shadow-on-scroll {
+    box-shadow: 0 0 10px 5px rgba(136, 136, 136, 0.1);
+}
+
+.navbar-light.scrolled {
+    background-color: #ffffff;
+}
+
+.navbar-light.scrolled .navbar-nav .nav-link {
+    color: #000000 !important;
+}
+
+.navbar.navbar-light.active {
+    background-color: white;
+}
+
+.navbar.navbar-light.active .navbar-nav .nav-link {
+    color: black !important;
+}
+
+.navbar #navbarSupportedContent .nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
+
+.navbar-light .navbar-toggler {
+    color: rgba(255, 255, 255, 0.5) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.navbar #button-daftar {
+    width: 170px;
+    background-color: #174076;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    transition: background-color 0.3s ease;
+    -webkit-transition: background-color 0.3s ease;
+    -moz-transition: background-color 0.3s ease;
+    -ms-transition: background-color 0.3s ease;
+    -o-transition: background-color 0.3s ease;
+}
+
+.navbar #button-daftar:hover {
+    background-color: #2A6BC2;
+    cursor: pointer;
+}
+
+.navbar #button-daftar a {
+    font-size: 15px;
+    color: #ffffff !important;
+}
+
+@media (max-width: 992px) {
+    .navbar #button-daftar {
+        width: 100%;
+    }
+    .navbar .nav-item{
+        margin-right: 0 !important;
+    }
+}
+
+
+.footer {
+    background-color: #174076;
+    height: 10vh;
+    color: white;
+}
+
+.footer .container p {
+    margin: 0;
+}
+
+
+.footer #left {
+    padding-left: 130px;
+}
+
+@media screen and (max-width: 768px) {
+    .footer #footer-copyright {
+        justify-content: center !important;
+    }
+
+    .footer p {
+        font-size: 0.9rem;
+    }
+    .footer #left {
+        padding-left: 0;
+        padding-right: 20px;
+    }
+    .footer #right {
+        padding-left: 20px;
+    }
+}
+
+@media screen and (max-width: 382px) {
+    .footer {
+        height: 15vh;
+    }
+    #footer-desc p {
+        font-size: 0.8rem;
+    }
+}
+
+    </style>
+    <title>ZanProject - Layanan Property Masa Kini</title>
+</head>
+<body>
+    <nav
+    class="navbar navbar-expand-lg navbar-light fixed-top navbar-shadow"
+    id="navv"
+  >
+    <div class="container">
+      <a class="navbar-brand" href="./">
+        <img
+          src="./assets/img/TGB_logo.png"
+          alt="TGB Logo"
+          width="100"
+          height="100"
+          class="img-fluid"
+        />
+        <span class="text-primary">Property</span>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="navbarSupportedContent" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item mr-4">
+            <a class="nav-link text-white font-weight-bold" href="./">Home</a>
+          </li>
+          <li class="nav-item mr-4">
+            <a class="nav-link text-white" href="./#service">Service</a>
+          </li>
+          <li class="nav-item mr-4">
+            <a
+              class="nav-link text-white"
+              href="assets/Company Profile TBG.pdf"
+              >Company Profile</a
+            >
+          </li>
+          <li class="nav-item mr-4">
+            <a class="nav-link text-white" href="#kontak">Kontak</a>
+          </li>
+          <li id="button-daftar" class="nav-item">
+            <a class="nav-link" href="./costumer/" target="_self"
+              >Wujudkan Impian</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    var navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > 270) {
+            navbar.classList.add('scrolled');
+            navbar.classList.add('shadow-on-scroll');
+        } else {
+            navbar.classList.remove('scrolled');
+            navbar.classList.remove('shadow-on-scroll');
+        }
+    });
+});
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const navbarToggle = document.querySelector(".navbar-toggler");
+      const navbar = document.querySelector(".navbar");
+
+      navbarToggle.addEventListener("click", function () {
+        navbar.classList.toggle(
+          "active",
+          navbarToggle.getAttribute("aria-expanded") === "false"
+        );
+      });
+    });
+  </script>
+<header style="background-color: #CCC;">
+<div class="px-4 px-lg-5">
+    <div class="row gx-4">
+        <div class="col-lg-7 text-center" style="margin-top: 100px;">
+            <h1 class="fw-semi-bold">
+                Privacy Policy
+            </h1>
+
+        </div>
+        <div class="col-lg-5 d-flex justify-content-end" style="margin-top: 100px; -webkit-filter: grayscale(100%); filter: grayscale(100%);">
+            <img class="img-fluid text-end" src="https://www.raywhite.co.id/assets/img/career-detail.png" alt="Career Ray White Indonesia">
+        </div>
+    </div>
+</div>
+
+</header>
+
+<section class="content-section bg-light" data-aos="fade-up" style="padding-top: 30px;">
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 px-lg-5">
+  <div class="col-lg-12 py-3">
+    <div class="lbp">
+        <h2><strong><u>Umum</u></strong></h2>
+<p>Zanproject bertanggung jawab atas pengumpulan dan penggunaan informasi pribadi Anda, termasuk yang melibatkan mitra, entitas terkait, anak perusahaan, karyawan, franchisee, dan agen yang bekerja sama dengan kami. Kebijakan ini dapat ditinjau dan diperbarui sewaktu-waktu tanpa pemberitahuan sebelumnya. Versi terbaru kebijakan akan selalu tersedia di situs web resmi kami.</p>
+<h3><strong><u>Bagaimana Zanproject mengumpulkan informasi pribadi?</u></strong></h3>
+<p>Zanproject biasanya mengumpulkan informasi pribadi Anda secara langsung melalui telepon, surat, email, atau melalui situs web kami, seperti saat Anda mengikuti kompetisi, berpartisipasi dalam promosi, meminta informasi atau materi dari kami, mengisi survei, atau memberikan umpan balik. Dalam beberapa kasus, Zanproject juga dapat memperoleh informasi pribadi Anda dari pihak ketiga. Sebagai contoh, kami mungkin menerima informasi dari agen pelaporan kredit, perwakilan Anda (seperti penasihat hukum), penasihat keuangan, pemberi kerja Anda, atau sumber informasi yang tersedia secara umum, dengan persetujuan Anda.</p>
+<h3><strong><u>Apa informasi pribadi yang kami kumpulkan?</u></strong></h3>
+<p>Kami umumnya mengumpulkan nama, alamat, nomor telepon, alamat email, pekerjaan, informasi keuangan, dan informasi lainnya yang relevan untuk memahami kebutuhan Anda terkait layanan kami. Informasi ini juga diperlukan untuk mendukung berbagai aktivitas bisnis Zanproject. Data yang kami kumpulkan digunakan untuk menyediakan dan mempromosikan layanan kami, termasuk  :</p>
+<ol>
+<li>Melakukan bisnis kami ; dan</li>
+<li>Mengkomunikasikan informasi tentang produk dan layanan kami kepada Anda; dan</li>
+<li>Untuk administrasi , pemasaran , perencanaan , pengembangan dan penelitian persyaratan internal kami.</li>
+</ol>
+<p>Zanproject dapat mengungkapkan dan menggunakan informasi pribadi Anda untuk tujuan yang berkaitan, di antaranya:</p>
+<ol>
+<li>Pelaporan peraturan dan kontrak dan kepatuhan; dan</li>
+<li>Mengembangkan , meningkatkan dan memasarkan produk dan layanan kami; dan</li>
+<li>Meningkatkan hubungan kami dengan Anda melalui penyediaan informasi terakhir dan kondisi pasar perdagangan properti; dan</li>
+<li>Melibatkan Anda dalam riset pasar dan survei Anda; dan</li>
+<li>Menganalisis tren dalam penjualan; dan</li>
+<li>Pengungkapan informasi.</li>
+</ol>
+<p>Zanproject adalah bagian dari jaringan waralaba, dan informasi pribadi Anda dapat dibagikan antara franchisee dan franchisor dalam jaringan ini untuk mendukung operasional bisnis Zanproject. Kami juga dapat mengungkapkan informasi pribadi Anda sebagaimana diizinkan atau diwajibkan oleh hukum, kepada badan pengatur, penegak hukum, atau penyedia layanan pihak ketiga. Dalam beberapa kasus, Zanproject bertindak sebagai agen dalam pengumpulan informasi pribadi atas nama pihak ketiga untuk keperluan internal atau kebutuhan operasional mereka.
+  Untuk meningkatkan kualitas layanan, Zanproject mungkin menjalin kerja sama dengan pihak ketiga yang bertugas menangani informasi pribadi Anda. Pihak ketiga ini hanya diperbolehkan menggunakan informasi pribadi Anda sesuai dengan tujuan yang telah ditentukan, meskipun kami tidak bertanggung jawab atas pengelolaan informasi tersebut oleh pihak ketiga.</p>
+<p>&nbsp;<br></p>
+<h3><strong><u>Mengakses informasi Anda</u></strong></h3>
+<p>Anda berhak untuk meminta akses terhadap informasi pribadi Anda sesuai dengan ketentuan undang-undang privasi yang berlaku. Anda juga dapat meminta perbaikan atas informasi yang tidak akurat, tidak lengkap, atau jika ada perubahan yang perlu diperbarui dalam data pribadi Anda. Jika diminta, Zanproject akan mengambil langkah yang wajar untuk memperbaiki informasi yang ada tentang Anda.</p>
+<p>&nbsp;<br></p>
+<h3><strong><u>Penyimpanan informasi</u></strong></h3>
+<p>Zanproject akan mengambil langkah-langkah yang diperlukan untuk :</p>
+<ol>
+<li>Memastikan bahwa informasi pribadi yang dikumpulkan dan digunakan adalah akurat, lengkap, dan tepat; dan</li>
+<li>Menghancurkan atau menghapus secara permanen informasi pribadi tentang Anda jika tidak lagi membutuhkannya untuk tujuan apapun; dan</li>
+<li>Melindungi informasi pribadi Anda dari penyalahgunaan, kehilangan, dan dari akses yang tidak sah , modifikasi atau pengungkapan selain dari pihak ketiga seperti telah disebutkan di atas.</li>
+</ol>
+<p>&nbsp;<br></p>
+<h3 id="kontak"><strong><u>Menghubungi kami</u></strong></h3>
+<p>Jika Anda memiliki pertanyaan mengenai kebijakan privasi ini, Anda dapat menghubungi kantor Zanproject melalui rincian kontak yang tercantum di bawah ini.</p>
+<p>Jl. H. Sayan No. 60 C, Pabuaran Mekar Kec. Cibinong, Kab. Bogor, Jawa Barat &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br> Jakarta Pusat, DKI Jakarta &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br> Phone: (62-21) 3922 777, Fax: (62-21) 3925 528 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br> Email: tirogemilangbersama@gmail.com</p>
+<p>&nbsp;<br></p>
+</div>
+</div>
+</section>
+
+  <!-- Footer -->
+  <footer class="footer d-flex justify-content-center align-items-center">
+    <div class="container">
+      <div class="row">
+        <div id="footer-copyright" class="col-md-6 d-flex align-items-center">
+          <p class="text-center">
+            Copyright 2024 PT. Tiro Gemilang Bersama, All Right Reserved
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer> 
+
+
+<script src="https://www.raywhite.co.id/js/bootstrap.bundle.min.js"></script>
+<script src="https://www.raywhite.co.id/js/fontawesome/all.min.js"></script>
+<script src="https://www.raywhite.co.id/js/aos.js"></script>
+
+<script>
+AOS.init({
+duration: 800,
+easing: "slide",
+});
+</script>
+<script src="https://www.raywhite.co.id/js/back-to-top.js"></script>
+<script src="https://www.raywhite.co.id/js/parallax/parallax.js"></script>
+<script>
+$(document).ready(function() {
+
+var list = $(".list-award li");
+var numToShow = 5;
+var button = $("#showmore");
+var numInList = list.length;
+list.hide();
+if (numInList > numToShow) {
+    button.show();
+}
+list.slice(0, numToShow).show();
+
+button.click(function() {
+    var showing = list.filter(':visible').length;
+    list.slice(showing - 1, showing + numToShow).fadeIn();
+    var nowShowing = list.filter(':visible').length;
+    if (nowShowing >= numInList) {
+        button.hide();
+    }
+});
+
+});
+</script>
+</body>
+</html>

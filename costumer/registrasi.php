@@ -11,17 +11,19 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-    // Check if the email already exists
-    $sql = "SELECT * FROM users WHERE email = '$email'";
+    
+    $sql = "SELECT * FROM customers WHERE email = '$email'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         $message = "Email already registered!";
     } else {
-        // Insert the user into the database
+        
         $insert_sql = "INSERT INTO customers (username, email, password) VALUES ('$username', '$email', '$password')";
         if ($conn->query($insert_sql) === TRUE) {
             $message = "Registration successful! You can now login.";
+            header("Location: Dashboard/index.html");
+            exit();
         } else {
             $message = "Error: " . $conn->error;
         }

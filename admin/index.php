@@ -1,32 +1,27 @@
 <?php
 session_start();
 
-// Koneksi database
-$conn = new mysqli('localhost', 'root', '', 'zanproject_db');
-if ($conn->connect_error) {
-    die("Error database: " . $conn->connect_error);
-}
+include 'config.php';
 
-// login proses
+
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Query untuk memeriksa username dan password
+    
     $sql = "SELECT * FROM admin WHERE username = '$username' AND password = '$password'";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
 
-        // Simpan ID Admin dalam session
+       
         $_SESSION['admin_id'] = $row['id'];
 
-        // Update timestamp for login
+       
         $updateSql = "UPDATE admin SET logs_riwayat = NOW() WHERE id = " . $row['id'];
         $conn->query($updateSql);
 
-        // Redirect ke halaman dashboard admin
         header("Location: Dashboard_Admin/"); 
         exit();
     } else {
@@ -42,7 +37,7 @@ if (isset($_POST['login'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="assets/img/logo.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/style1.css">
-    <title>Login | TGB - Property</title>
+    <title>Login | Zanproject - Property</title>
 </head>
 <body>
     <form action="" method="POST" class="login-box">
@@ -61,7 +56,7 @@ if (isset($_POST['login'])) {
                 <label for="showPassword">Lihat Sandi</label>
             </section>
             <section>
-                <a href="#">Forgot password</a>
+                <a href="Forgot_password.php">Forgot password</a>
             </section>
         </div>
         <div class="input-submit">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 20, 2024 at 09:12 AM
+-- Generation Time: Dec 20, 2024 at 08:37 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -41,8 +41,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `email`, `password`, `logs_riwayat`, `created_at`) VALUES
-(1, 'admin', 'zanproject.id@gmail.com', 'admin123', '2024-12-20 07:20:49', '2024-12-15 21:06:00'),
-(2, 'admin2', 'zulfikaajrun@gmail.com', '123456', '2024-12-16 03:16:00', '2024-12-16 03:16:00');
+(1, 'admin', 'zanproject.id@gmail.com', 'admin123', '2024-12-20 19:49:03', '2024-12-15 21:06:00'),
+(2, 'admin2', 'zulfikaajrun@gmail.com', '123456', '2024-12-20 19:50:59', '2024-12-16 03:16:00');
 
 -- --------------------------------------------------------
 
@@ -73,6 +73,13 @@ CREATE TABLE `properties` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `properties`
+--
+
+INSERT INTO `properties` (`id`, `name`, `price`, `location`, `description`, `image`, `created_at`, `updated_at`) VALUES
+(2, 'admin', '13123.00', 'Kab. Banyumas, Jawa Tengah, Indonesia', 'asdasds', 'IMG-20240818-WA0015.jpg', '2024-12-20 09:56:30', '2024-12-20 09:56:30');
 
 --
 -- Indexes for dumped tables
@@ -119,7 +126,7 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `properties`
 --
 ALTER TABLE `properties`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
