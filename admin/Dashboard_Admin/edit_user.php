@@ -1,36 +1,48 @@
 <?php
 include '../config.php';
 
-
-if (isset($_POST['submit'])) {
-   
-    $name = $_POST['name'];
-    $price = $_POST['price'];
-    $location = $_POST['location'];
-    $description = $_POST['description'];
-    $image = $_FILES['image']['name'];
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
 
     
-    if ($image) {
-        $target = "uploads/";
-        $file = $target . basename($image);
-        if (move_uploaded_file($_FILES['image']['tmp_name'], $file)) {
-            
-        } else {
-            echo "Failed to upload image.";
-            exit();
-        }
-    } else {
-        echo "Please upload an image.";
-        exit();
+    if (empty($id)) {
+        die("ID tidak ditemukan.");
     }
 
     
-    $insert_query = "INSERT INTO properties (name, price, location, description, image) VALUES ('$name', '$price', '$location', '$description', '$image')";
+    $query = "SELECT * FROM customers WHERE id = '$id'";
+    $result = mysqli_query($conn, $query);
 
-    if (mysqli_query($conn, $insert_query)) {
-        echo "Property added successfully.";
-        header('Location: index.php'); 
+    
+    if (!$result || mysqli_num_rows($result) == 0) {
+        die("Data dengan ID $id tidak ditemukan.");
+    }
+
+    $customer = mysqli_fetch_assoc($result);
+} else {
+    die("ID tidak ditemukan.");
+}
+
+
+if (isset($_POST['submit'])) {
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    if (!empty($password)) {
+        
+        $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+        $update_query = "UPDATE customers SET username = '$username', email = '$email', password = '$hashed_password' WHERE id = '$id'";
+    } else {
+        
+        $update_query = "UPDATE customers SET username = '$username', email = '$email' WHERE id = '$id'";
+    }
+
+    
+    $result_update = mysqli_query($conn, $update_query);
+
+    if ($result_update) {
+        header("Location: costumer.php?message=success");
         exit();
     } else {
         echo "Error: " . mysqli_error($conn);
@@ -299,18 +311,18 @@ if (isset($_POST['submit'])) {
         </a>
         <ul class="side-menu top">
             <li>
-                <a href="index.php">
+                <a href="./">
                     <i class='bx bxs-dashboard'></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            <li class="active">
-                <a href="#">
+            <li>
+                <a href="create.php">
                     <i class='bx bxs-home'></i>
                     <span class="text">Properti</span>
                 </a>
             </li>
-            <li>
+            <li class="active">
                 <a href="costumer.php">
                     <i class='bx bxs-user'></i>
                     <span class="text">Costumer</span>
@@ -369,35 +381,37 @@ if (isset($_POST['submit'])) {
             <ul class="breadcrumb">
                 <li><a href="./">Dashboard</a></li>
                 <li><i class='bx bx-chevron-right'></i></li>
-                <li><a class="active" href="#">Create Property</a></li>
+                <li><a class="active" href="#">Costumer Property</a></li>
             </ul>
         </div>
     </div>
             <section class="form-section">
-                <form action="" method="POST" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="name">Property Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="price">Property Price</label>
-                        <input type="number" id="price" name="price" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="location">Property Location</label>
-                        <input type="text" id="location" name="location" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Property Description</label>
-                        <textarea id="description" name="description" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="image">Upload Image</label>
-                        <input type="file" id="image" name="image" required>
-                    </div>
-                    <button type="submit" name="submit" class="btn-primary">Add Property</button>
-                    <a href="index.php" class="btn-secondary">Cancel</a>
-                </form>
+            <form action="" method="POST">
+                <input type="hidden" name="id" value="<?php echo $customer['id']; ?>">
+
+                <div class="form-group">
+                    <label for="username">Username: </label>
+                    <input type="text" id="username" name="username" class="form-control" 
+                           value="<?php echo $customer['username']; ?>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email: </label>
+                    <input type="email" id="email" name="email" class="form-control" 
+                           value="<?php echo $customer['email']; ?>" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password: </label>
+                    <input type="password" id="password" name="password" class="form-control" 
+                           placeholder="Update Password">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" name="submit" class="btn btn-primary">Simpan</button>
+                    <a href="costumer.php" class="btn btn-secondary">Batal</a>
+                </div>
+            </form>
             </section>
         </main>
         <!-- MAIN -->

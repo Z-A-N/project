@@ -304,7 +304,7 @@ if (isset($_GET['id'])) {
         }
     </style>
 
-    <title>Admin - Zanproject</title>
+    <title>Admin - PropertyHub</title>
 </head>
 
 <body>
@@ -416,7 +416,7 @@ if (isset($_GET['id'])) {
                         <?php endif; ?>
                     </div>
                     <button type="submit" name="submit" class="btn-primary">Update</button>
-                    <a href="dashboard.html" class="btn-secondary">Cancel</a>
+                    <a href="./" class="btn-secondary">Cancel</a>
                 </form>
             </section>
         </main>

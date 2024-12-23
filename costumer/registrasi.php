@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
         $insert_sql = "INSERT INTO customers (username, email, password) VALUES ('$username', '$email', '$password')";
         if ($conn->query($insert_sql) === TRUE) {
             $message = "Registration successful! You can now login.";
-            header("Location: Dashboard/index.html");
+            header("Location: Dashboard/index.php");
             exit();
         } else {
             $message = "Error: " . $conn->error;

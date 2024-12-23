@@ -166,12 +166,12 @@ if (!$result) {
                         <!-- Edit and Delete Buttons -->
                         <div class="d-flex justify-content-center">
                             <!-- Edit Button -->
-                            <a href="update.php?id=<?php echo $row['id']; ?>" class="btn btn-primary mx-2">
+                            <a href="edit_user.php?id=<?php echo $row['id']; ?>" class="btn btn-primary mx-2">
                                 Edit
                             </a>
 
                             <!-- Delete Button -->
-                            <a href="delete.php?id=<?php echo $row['id']; ?>" class="btn btn-danger mx-2" 
+                            <a href="delete_user.php?id=<?php echo $row['id']; ?>" class="btn btn-danger mx-2" 
                                onclick="return confirm('Are you sure you want to delete this property?')">
                                 Delete
                             </a>
